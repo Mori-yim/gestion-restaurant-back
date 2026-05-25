@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
+//Route principale
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
 public class AuthController {
@@ -26,6 +27,7 @@ public class AuthController {
     private final UserService userService;
     private final JwtUtils jwtUtils;
 
+    //Connexion
     @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest request) {
         Authentication authentication = authenticationManager.authenticate(
@@ -45,6 +47,7 @@ public class AuthController {
                 .build());
     }
 
+    //Inscription
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@Valid @RequestBody RegisterRequest request) {
         User user = userService.register(request);

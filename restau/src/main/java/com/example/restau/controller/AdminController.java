@@ -20,7 +20,9 @@ import java.util.Map;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
+//Route principale
 @RequestMapping("/api/admin")
+//Accessible uniquement par l'admin
 @PreAuthorize("hasRole('ADMIN')")
 @RequiredArgsConstructor
 public class AdminController {
